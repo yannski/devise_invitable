@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/durran/mongoid.git
+  revision: 63a1f47
+  specs:
+    mongoid (2.0.0.beta.12)
+      activemodel (~> 3.0.0.beta)
+      bson (~> 1.0.4)
+      mongo (~> 1.0.5)
+      tzinfo (~> 0.3.22)
+      will_paginate (~> 3.0.pre)
+
 PATH
   remote: .
   specs:
@@ -79,12 +90,6 @@ GEM
       rake
     mongo (1.0.5)
       bson (>= 1.0.4)
-    mongoid (2.0.0.beta9)
-      activemodel (~> 3.0.0.beta)
-      bson (~> 1.0.3)
-      mongo (~> 1.0.3)
-      tzinfo (~> 0.3.22)
-      will_paginate (~> 3.0.pre)
     nokogiri (1.4.2)
     polyglot (0.3.1)
     rack (1.1.0)
@@ -161,7 +166,7 @@ DEPENDENCIES
   launchy
   mocha
   mongo
-  mongoid (>= 2.0.0.beta9)
+  mongoid!
   rails (= 3.0.0.beta4)
   rspactor (>= 0.7.beta.5)
   rspec-rails (>= 2.0.0.beta.19)
