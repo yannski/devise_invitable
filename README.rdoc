@@ -1,3 +1,5 @@
+!!! WARNING !!! Please don't use this branch ("edge") directly, instead, use the v0.6.5.1[http://github.com/rymai/devise_invitable/tree/v0.6.5.1] tag or the master[http://github.com/rymai/devise_invitable/tree/master]. This branch will be removed as soon as Rails 3.0 will be released !!! WARNING !!!
+
 = DeviseInvitable
 
 It adds a module to Devise[http://github.com/plataformatec/devise] that allow authenticated resources to send invitations by email to others. Invited resources accept an invitation by setting their password.
