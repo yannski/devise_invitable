@@ -24,11 +24,11 @@ class Devise::InvitationsController < ApplicationController
         if resource.invitation_count.nil?
           pp "if"
           pp resource_class.invitation_limit-1
-          resource.update_attributes :invitation_count => resource_class.invitation_limit-1
+          current_user.update_attributes({:invitation_count => resource_class.invitation_limit-1})
         else
           pp "else"
           pp resource.invitation_count-1
-          resource.update_attributes :invitation_count => resource.invitation_count-1
+          current_user.update_attributes({:invitation_count => resource.invitation_count-1})
         end
       end
       set_flash_message(:notice, :send_instructions, :email => params[resource_name][:email])
