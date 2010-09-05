@@ -3,8 +3,16 @@ class Devise::InvitationsController < ApplicationController
   include DeviseInvitable::Controllers::Helpers
   
   before_filter :authenticate_inviter!, :only => [:new, :create]
+  before_filter :has_invitations_left, :only => [:create]
   before_filter :require_no_authentication, :only => [:edit, :update]
   helper_method :after_sign_in_path_for
+
+protected
+
+  def has_invitations_left
+    current_user.invitation_count > 0
+  end
+public
   
   # GET /resources/invitation/new
   def new
