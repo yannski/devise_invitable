@@ -10,8 +10,9 @@ class Devise::InvitationsController < ApplicationController
 protected
 
   def has_invitations_left
-    current_user.invitation_count > 0
+    resource_class.invitation_limit.nil? || current_user.invitation_count > 0
   end
+
 public
   
   # GET /resources/invitation/new
