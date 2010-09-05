@@ -10,7 +10,7 @@ class Devise::InvitationsController < ApplicationController
 protected
 
   def has_invitations_left
-    set_flash_message(:notice, :no_more_invitations_left) and redirect_to send("new_#{resource.name.underscore}_invitation_path") if resource_class.invitation_limit.nil? || current_user.invitation_count > 0
+    render :text => "Unauthorized", :status => 301 if resource_class.invitation_limit.nil? || current_user.invitation_count > 0
   end
 
 public
