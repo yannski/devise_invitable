@@ -10,11 +10,7 @@ class Devise::InvitationsController < ApplicationController
 protected
 
   def has_invitations_left
-    result = resource_class.invitation_limit.nil? || current_user.invitation_count > 0
-    require "pp"
-    pp "$$$$"
-    pp result
-    result
+    set_flash_message(:notice, :no_more_invitations_left) and redirect_to send("new_#{resource.name.underscore}_invitation_path") if resource_class.invitation_limit.nil? || current_user.invitation_count > 0
   end
 
 public
