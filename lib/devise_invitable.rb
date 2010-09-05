@@ -26,6 +26,14 @@ module Devise
   #   config.validate_on_invite = true
   mattr_accessor :validate_on_invite
   @@validate_on_invite = false
+  
+  # Public: number of invitations the user is allowed to send
+  #
+  # Examples (in config/initializers/devise.rb)
+  #
+  #   config.invitation_count = nil
+  mattr_accessor :invitation_count
+  @@invitation_count = nil
 end
 
 Devise.add_module(:invitable,
