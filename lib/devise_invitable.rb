@@ -31,9 +31,9 @@ module Devise
   #
   # Examples (in config/initializers/devise.rb)
   #
-  #   config.invitation_count = nil
-  mattr_accessor :invitation_count
-  @@invitation_count = nil
+  #   config.invitation_limit = nil
+  mattr_accessor :invitation_limit
+  @@invitation_limit = nil
 end
 
 Devise.add_module(:invitable,

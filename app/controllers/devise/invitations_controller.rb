@@ -17,10 +17,10 @@ class Devise::InvitationsController < ApplicationController
     self.resource = resource_class.invite(params[resource_name])
     
     if resource.invited?
-      if resource_class.invitation_count.present?
+      if resource_class.invitation_limit.present?
         if resource.invitation_count.nil?
-          resource.update_attributes :invitation_count, User.invitation_count
-          new_count = resource_class.invitation_count
+          resource.update_attributes :invitation_count, resource_class.invitation_limit
+          new_count = resource_class.invitation_count - 1
         else
           new_count = resource.invitation_count - 1
         end
