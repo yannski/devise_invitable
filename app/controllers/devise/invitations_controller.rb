@@ -10,7 +10,11 @@ class Devise::InvitationsController < ApplicationController
 protected
 
   def has_invitations_left
-    resource_class.invitation_limit.nil? || current_user.invitation_count > 0
+    result = resource_class.invitation_limit.nil? || current_user.invitation_count > 0
+    require "pp"
+    pp "$$$$"
+    pp result
+    result
   end
 
 public
