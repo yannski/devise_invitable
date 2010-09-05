@@ -224,6 +224,7 @@ module Devise
         
         Devise::Models.config(self, :invite_for)
         Devise::Models.config(self, :validate_on_invite)
+        Devise::Models.config(self, :invitation_count)
       end
       
     end
