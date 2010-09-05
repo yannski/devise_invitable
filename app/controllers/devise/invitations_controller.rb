@@ -19,12 +19,10 @@ class Devise::InvitationsController < ApplicationController
     if resource.invited?
       if resource_class.invitation_limit.present?
         if resource.invitation_count.nil?
-          resource.update_attributes :invitation_count => resource_class.invitation_limit
-          new_count = resource_class.invitation_limit - 1
+          resource.update_attributes :invitation_count => resource_class.invitation_limit-1
         else
-          new_count = resource.invitation_count - 1
+          resource.update_attributes :invitation_count => resouce.invitation_count-1
         end
-        resource.update_attributes :invitation_count => new_count
       end
       set_flash_message(:notice, :send_instructions, :email => params[resource_name][:email])
       redirect_to after_sign_in_path_for(resource_name)
