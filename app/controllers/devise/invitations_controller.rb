@@ -10,7 +10,7 @@ class Devise::InvitationsController < ApplicationController
 protected
 
   def has_invitations_left
-    render :text => "Unauthorized", :status => 301 if resource_class.invitation_limit.nil? || current_user.invitation_count > 0
+    render(:text => "Unauthorized", :status => 301) and return if resource_class.invitation_limit.present? && current_user.invitation_count <= 0
   end
 
 public
